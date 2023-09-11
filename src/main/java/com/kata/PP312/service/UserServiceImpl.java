@@ -4,6 +4,7 @@ import com.kata.PP312.dao.UserDao;
 import com.kata.PP312.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -29,16 +30,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void save(User user) {
         userDao.save(user);
     }
 
     @Override
+    @Transactional
     public void update(long id, User updatedUser) {
         userDao.update(id, updatedUser);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         userDao.delete(id);
     }
